@@ -25,7 +25,7 @@ CREATE TABLE Titles (
     title VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Dept_Emp (
+CREATE TABLE Department Employee (
     dept_no INT,
     emp_no INT,
     PRIMARY KEY (emp_no),
@@ -33,7 +33,7 @@ CREATE TABLE Dept_Emp (
     FOREIGN KEY (emp_no) REFERENCES Employees(emp_no)
 );
 
-CREATE TABLE Dept_Manager (
+CREATE TABLE Deptartment Manager (
     dept_no INT,
     emp_no INT,
     PRIMARY KEY (dept_no, emp_no),
@@ -49,14 +49,14 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 LOAD DATA INFILE 'Resources/dept_emp.csv' 
-INTO TABLE Dept_Emp 
+INTO TABLE Department Employee
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"' 
 LINES TERMINATED BY '\n' 
 IGNORE 1 ROWS;
 
 LOAD DATA INFILE 'Resources/dept_manager.csv' 
-INTO TABLE Dept_Manager
+INTO TABLE Department Manager
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"' 
 LINES TERMINATED BY '\n' 
