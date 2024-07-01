@@ -41,44 +41,32 @@ CREATE TABLE Department_Manager (
     FOREIGN KEY (emp_no) REFERENCES Employees(emp_no)
 );
 
-LOAD DATA INFILE 'Resources/departments.csv' 
-INTO TABLE Departments 
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"' 
-LINES TERMINATED BY '\n' 
-IGNORE 1 ROWS;
+COPY Departments(dept_no, dept_name)
+FROM '/Resources/departments.csv'
+DELIMITER ','
+CSV HEADER;
 
-LOAD DATA INFILE 'Resources/dept_emp.csv' 
-INTO TABLE Department_Employee
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"' 
-LINES TERMINATED BY '\n' 
-IGNORE 1 ROWS;
+COPY Employees(emp_no, title_id, birth_date, first_name, last_name, sex, hire_date)
+FROM '/Resources/employees.csv'
+DELIMITER ','
+CSV HEADER;
 
-LOAD DATA INFILE 'Resources/dept_manager.csv' 
-INTO TABLE Department_Manager
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"' 
-LINES TERMINATED BY '\n' 
-IGNORE 1 ROWS;
+COPY Salaries(emp_no, salary)
+FROM '/Resources/salaries.csv'
+DELIMITER ','
+CSV HEADER;
 
-LOAD DATA INFILE 'Resources/employees.csv' 
-INTO TABLE Employees
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"' 
-LINES TERMINATED BY '\n' 
-IGNORE 1 ROWS;
+COPY Titles(title_id, title)
+FROM '/Resources/titles.csv'
+DELIMITER ','
+CSV HEADER;
 
-LOAD DATA INFILE 'Resources/salaries.csv' 
-INTO TABLE Salaries
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"' 
-LINES TERMINATED BY '\n' 
-IGNORE 1 ROWS;
+COPY Department_Employee(dept_no, emp_no)
+FROM '/Resources/dept_emp.csv'
+DELIMITER ','
+CSV HEADER;
 
-LOAD DATA INFILE 'Resources/titles.csv' 
-INTO TABLE Titles 
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"' 
-LINES TERMINATED BY '\n' 
-IGNORE 1 ROWS;
+COPY Department_Manager(dept_no, emp_no)
+FROM '/Resources/dept_manager.csv'
+DELIMITER ','
+CSV HEADER;
