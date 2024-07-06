@@ -4,17 +4,17 @@ JOIN Salaries s ON e.emp_no = s.emp_no;
 
 SELECT first_name, last_name, hire_date
 FROM Employees
-WHERE EXTRACT(YEAR FROM hire_date) = 1986;
+WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31';
 
 SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
 FROM Department_Manager dm
-JOIN Employees e ON dm.emp_no = e.emp_no
-JOIN Departments d ON dm.dept_no = d.dept_no;
+JOIN Departments d ON dm.dept_no = d.dept_no
+JOIN Employees e ON dm.emp_no = e.emp_no;
 
-SELECT de.dept_no, e.emp_no, e.last_name, e.first_name, d.dept_name
+SELECT de.dept_no, d.dept_name, e.emp_no, e.last_name, e.first_name
 FROM Department_Employee de
-JOIN Employees e ON de.emp_no = e.emp_no
-JOIN Departments d ON de.dept_no = d.dept_no;
+JOIN Departments d ON de.dept_no = d.dept_no
+JOIN Employees e ON de.emp_no = e.emp_no;
 
 SELECT first_name, last_name, sex
 FROM Employees
@@ -36,5 +36,3 @@ SELECT last_name, COUNT(*) AS frequency
 FROM Employees
 GROUP BY last_name
 ORDER BY frequency DESC;
-
-

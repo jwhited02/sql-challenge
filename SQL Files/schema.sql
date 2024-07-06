@@ -1,11 +1,16 @@
+CREATE TABLE Titles (
+    title_id VARCHAR(10) PRIMARY KEY,
+    title TEXT NOT NULL
+);
+
 CREATE TABLE Departments (
-    dept_no INT PRIMARY KEY,
-    dept_name VARCHAR(255) NOT NULL
+    dept_no VARCHAR(10) PRIMARY KEY,
+    dept_name TEXT NOT NULL
 );
 
 CREATE TABLE Employees (
     emp_no INT PRIMARY KEY,
-    title_id INT,
+    title_id VARCHAR(10),
     birth_date DATE,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
@@ -20,53 +25,19 @@ CREATE TABLE Salaries (
     FOREIGN KEY (emp_no) REFERENCES Employees(emp_no)
 );
 
-CREATE TABLE Titles (
-    title_id INT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL
-);
-
 CREATE TABLE Department_Employee (
-    dept_no INT,
     emp_no INT,
-    PRIMARY KEY (emp_no),
+    dept_no VARCHAR(10),
+    PRIMARY KEY (emp_no, dept_no),
     FOREIGN KEY (dept_no) REFERENCES Departments(dept_no),
     FOREIGN KEY (emp_no) REFERENCES Employees(emp_no)
 );
 
 CREATE TABLE Department_Manager (
-    dept_no INT,
+    dept_no VARCHAR(10),
     emp_no INT,
     PRIMARY KEY (dept_no, emp_no),
     FOREIGN KEY (dept_no) REFERENCES Departments(dept_no),
     FOREIGN KEY (emp_no) REFERENCES Employees(emp_no)
 );
 
-COPY Departments(dept_no, dept_name)
-FROM '/Resources/departments.csv'
-DELIMITER ','
-CSV HEADER;
-
-COPY Employees(emp_no, title_id, birth_date, first_name, last_name, sex, hire_date)
-FROM '/Resources/employees.csv'
-DELIMITER ','
-CSV HEADER;
-
-COPY Salaries(emp_no, salary)
-FROM '/Resources/salaries.csv'
-DELIMITER ','
-CSV HEADER;
-
-COPY Titles(title_id, title)
-FROM '/Resources/titles.csv'
-DELIMITER ','
-CSV HEADER;
-
-COPY Department_Employee(dept_no, emp_no)
-FROM '/Resources/dept_emp.csv'
-DELIMITER ','
-CSV HEADER;
-
-COPY Department_Manager(dept_no, emp_no)
-FROM '/Resources/dept_manager.csv'
-DELIMITER ','
-CSV HEADER;
