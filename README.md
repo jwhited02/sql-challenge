@@ -26,7 +26,7 @@ The questions are:
 8. List the frequency counts, in descending order, of all the employee last names (that is, how many employees share each last name).
 
 
-The SQL files containing the schema for the tables and queries for these questions can be found in the "SQL" folder. 
+The SQL files containing the schema for the tables and queries for these questions can be found in the "SQL Files" folder. 
 
 The .png of the ERD can be found in the "ERD" folder. 
 
