@@ -36,7 +36,7 @@ The .csv files can be found in the "Resources" folder.
 
 
 
-First, I formed the schemas based off the .csv files given. Once I got all of those to run smoothly and in the correct order, I did the queries based off of the solved class activities from the SQL days. Most of them were pretty simple and I didn't have many issues with those. To make sure the schema and queries ran smoothly, I used pgAdmin and was finally able to get it to work. I had some problems uploading the data to the tables, and it turns out I just needed to upload them in the correct order. Once I found out that was the issue I felt pretty dumb, but I am glad it was something as simple as that.
+First, I did the ERD on QuickDBD which helped me come up with the schema. I still definitely need to do some work on foreign and primary keys so it took me a while to come up with the correct ones, but hopefully I got it right. Then, I formed the schemas based off the diagram and the .csv files given. Once I got all of those to run smoothly and in the correct order, I did the queries based off of the solved class activities from the days we worked on SQL. Most of them were pretty simple and I didn't have many issues with those. To make sure the schema and queries ran smoothly, I used pgAdmin and was finally able to get it to work. I had some problems uploading the data to the tables, and it turns out I just needed to upload them in the correct order. Once I found out that was the issue I felt pretty dumb, but I am glad it was something as simple as that.
 
 
 
